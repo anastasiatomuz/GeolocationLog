@@ -11,6 +11,21 @@
     <p>This is a basic web server with Express</p>
     
     <script>
+        const submit = document.getElementById("submit");
+        submit.addEventListener("click", async () => {const data = { lat, lon };
+             const options = {
+                   method: 'POST',
+                   headers: {
+                        'Content-Type': 'application/json'
+          },
+            body: JSON.stringify(data)
+        };
+        const response = await fetch('/api', options);
+        const json = await response.json(); // this will be read as json
+        console.log(json);});
+
+
+
     if ('geolocation' in navigator) {
         console.log('geolocation available');
         navigator.geolocation.getCurrentPosition(async position => {
